@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Форма обратной связи</title>
+  <link rel="stylesheet" href="/feedback/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h2 class="text-center">Форма обратной связи №1</h2>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h2 class="h3 panel-title">Форма обратной связи #1</h3>
+          </div>
+          <div class="panel-body">
+
+            <!-- Сообщение, отображаемое в случае успешной отправки данных -->
+            <div class="alert alert-success success-send hidden" role="alert">
+              <strong>Внимание!</strong> Форма была успешно отправлена.
+            </div>
+
+            <form id="contactForm1" enctype="multipart/form-data" novalidate>
+
+              <div class="error" style="color: #ff0000; margin-top: 5px; margin-bottom: 5px;"></div>
+              <div class="clearfix"></div>
+              <!-- Имя пользователя -->
+              <div class="form-group has-feedback">
+                <label for="name" class="control-label">Введите ваше имя*:</label>
+                <input type="text" name="name" data-name="Введите ваше имя*" class="form-control" required="required" value="" minlength="2" maxlength="30">
+                <span class="glyphicon form-control-feedback"></span>
+              </div>
+              <!-- Email пользователя -->
+              <div class="form-group has-feedback">
+                <label for="email" class="control-label">Введите ваш email*:</label>
+                <input type="text" name="email" data-name="Введите email*" required="required" class="form-control" value="">
+                <span class="glyphicon form-control-feedback"></span>
+              </div>
+
+              <div id="recaptcha1"></div>
+
+              <button name="send-message" type="submit" class="btn btn-primary pull-right">Отправить сообщение</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h2 class="text-center">Форма обратной связи №2</h2>
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h2 class="h3 panel-title">Форма обратной связи #2</h3>
+          </div>
+          <div class="panel-body">
+
+            <!-- Сообщение, отображаемое в случае успешной отправки данных -->
+            <div class="alert alert-success success-send hidden" role="alert">
+              <strong>Внимание!</strong> Форма была успешно отправлена.
+            </div>
+
+            <form id="contactForm2" enctype="multipart/form-data" novalidate>
+
+              <div class="error" style="color: #ff0000; margin-top: 5px; margin-bottom: 5px;"></div>
+              <div class="clearfix"></div>
+
+              <!-- Имя пользователя -->
+              <div class="form-group has-feedback">
+                <label for="name" class="control-label">Введите ваше имя*:</label>
+                <input type="text" name="name" data-name="Введите ваше имя*" class="form-control" required="required" value="" minlength="2" maxlength="30">
+                <span class="glyphicon form-control-feedback"></span>
+              </div>
+              <!-- Телефон пользователя -->
+              <div class="form-group has-feedback">
+                <label for="phone" class="control-label">Введите телефон*:</label>
+                <input type="text" name="phone" data-name="Введите телефон*" required="required" class="form-control" value="" minlength="14">
+                <span class="glyphicon form-control-feedback"></span>
+              </div>
+
+              <div id="recaptcha2"></div>
+
+              <button name="send-message" type="submit" class="btn btn-primary pull-right">Отправить сообщение</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/feedback/js/jquery-1.12.4.min.js"></script>
+  <script src="/feedback/js/bootstrap.min.js"></script>
+  <script src="/feedback/script.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadReCaptchaInvisible&render=explicit" async defer></script>
+</body>
+
+</html>
