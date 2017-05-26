@@ -22,7 +22,7 @@
   }
   // если запрос не AJAX, то возвращаем ошибку и завершаем работу скрипта
   if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || $_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest') {
-    return json_encode($data);
+    echo json_encode($data);
     exit();
   }
 
@@ -79,18 +79,18 @@
       */
       $data['captcha']='Код капчи не прошёл проверку на сервере!';
       $data['result']='error';
-      return json_encode($data);
+      echo json_encode($data);
       exit();      
     }
   } else {
     $data['captcha']='Код капчи не прошёл проверку на сервере!';
     $data['result']='error';
-    return json_encode($data);
+    echo json_encode($data);
     exit();     
   }
   // если прозошли ошибки, то завершаем работу и возвращаем ответ клиенту
   if ($data['result']!='success') {
-    return json_encode($data);
+    echo json_encode($data);
     exit();    
   }
 
@@ -110,13 +110,13 @@
         if (!in_array($extFile, $allowedExtension)) {
           $data['files-'+$i]='Ошибка при загрузке файла '. $nameFile .' (неверное расширение).';
           $data['result']='error';
-          return json_encode($data);
+          echo json_encode($data);
           exit();           
         }
         if ($sizefile > $maxSizeFile) {
           $data['files-'+$i]='Ошибка при загрузке файлов '. $nameFile .' (размер превышает '. $maxSizeFile/1024 .' Кбайт).';
           $data['result']='error';
-          return json_encode($data);
+          echo json_encode($data);
           exit();    
         } 
         $tmpFile = $_FILES['files']['tmp_name'][$key];
@@ -128,14 +128,14 @@
         if (!move_uploaded_file($tmpFile, $newFullFileName)) {
           $data['files'] = 'Произошла ошибка при загрузке файлов.';
           $data['result']='error';
-          return json_encode($data);
+          echo json_encode($data);
           exit();              
         }
         $files[] = $newFullFileName;
       } else {
         $data['files'] = 'Произошла ошибка при загрузке файлов.';
         $data['result']='error';
-        return json_encode($data);
+        echo json_encode($data);
         exit();        
       }
     }
@@ -160,7 +160,7 @@
   } else {
     $data['files'] = 'Произошла ошибка при отправке формы.';
     $data['result']='error';
-    return json_encode($data);
+    echo json_encode($data);
     exit();        
   }
 
