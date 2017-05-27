@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Форма обратной связи</title>
+  <link rel="stylesheet" href="/feedback/css/bootstrap.min.css">
+  <!-- Подключаем API Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    #recaptcha {
+      margin: 10px auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Форма обратной связи в модальном окне -->
+  <div class="modal fade" id="feedbackForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Форма обратной связи</h4>
+        </div>
+        <!-- Тело модального окна -->        
+        <div class="modal-body">
+          <!-- Сообщение, отображаемое в случае успешной отправки данных -->
+          <div class="alert alert-success success-send hidden" role="alert">
+            <strong>Внимание!</strong> Форма была успешно отправлена.
+          </div>
+
+          <!-- Форма обратной связи -->
+          <form id="messageForm" enctype="multipart/form-data" novalidate>
+            <div class="row">
+
+              <div class="error col-sm-12" style="color: #ff0000; margin-top: 5px; margin-bottom: 5px;"></div>
+
+              <div class="col-sm-6">
+                <!-- Имя пользователя -->
+                <div class="form-group has-feedback">
+                  <label for="name" class="control-label">Введите ваше имя:</label>
+                  <input type="text" name="name" class="form-control" required="required" value="" placeholder="Например, Иван Иванович" minlength="2" maxlength="30">
+                  <span class="glyphicon form-control-feedback"></span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <!-- Email пользователя -->
+                <div class="form-group has-feedback">
+                  <label for="email" class="control-label">Введите адрес email:</label>
+                  <input type="email" name="email" class="form-control" required="required" value="" placeholder="Например, ivan@mail.ru" maxlength="30">
+                  <span class="glyphicon form-control-feedback"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Сообщение пользователя -->
+            <div class="form-group has-feedback">
+              <label for="message" class="control-label">Введите сообщение:</label>
+              <textarea name="message" class="form-control" rows="3" placeholder="Введите сообщение, состоящее не менее чем из 20 символов и не более чем из 500" minlength="20" maxlength="500" required="required"></textarea>
+            </div>
+
+            <!-- Файлы, для прикрепления к форме -->
+            <div class="form-group">
+              <p style="font-weight: 700;">Прикрепить к сообщению файлы (максимум <span id="countFiles"></span>):</p>
+              <!-- Файл -->
+              <input type="file" name="files[]">
+              <p style="margin-top: 3px; margin-bottom: 3px; color: #ff0000;"></p>
+            </div>
+
+            <!-- invisible reCaptcha -->
+            <div id="recaptcha" class="g-recaptcha" data-sitekey="6LdXhhgUAAAAAFUToe9JV6qa19DrI2TEM3GH-l7g" data-callback="onSubmitReCaptcha" data-size="invisible" data-badge="inline"></div>
+            <div class="clearfix"></div>
+            <!-- Кнопка, отправляющая форму по AJAX -->
+            <button id="submit" class="btn btn-primary pull-right" name="send-message">Отправить сообщение</button>
+            <div class="clearfix"></div>
+          </form><!-- Конец формы -->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h1 class="text-center">Форма обратной связи</h1>
+  <!-- Split button -->
+  <hr>
+  <div class="text-center">
+    <!-- Кнопка, для открытия модального окна -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackForm">
+      Написать сообщение
+    </button>
+  </div>
+  <hr>
+  <script src="/feedback/js/jquery-1.12.4.min.js"></script>
+  <script src="/feedback/js/bootstrap.min.js"></script>
+  <script src="/feedback/script.js"></script>
+</body>
+
+</html>
