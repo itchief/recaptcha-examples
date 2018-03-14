@@ -1,5 +1,5 @@
-# feedback-form-with-invisible-recaptcha
-Examples of feedback forms with invisible recaptcha (Примеры форм обратной связи с невидимой recaptcha)
+
+Примеры форм обратной связи с невидимой recaptcha)
 
 Примеры, в которых рассмотрены 
 различные варианты подключения капчи invisible reCAPTCHA к форме обратной связи.
