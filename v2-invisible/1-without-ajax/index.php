@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="alert alert-success d-flex align-items-center" role="alert">
           <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
           <div>Форма успешно отправлена! Нажмите <a class="alert-link" href="<?php $_SERVER['PHP_SELF'] ?>">здесь</a>, если нужно отправить ещё одну форму.</div>
-        </div>;
+        </div>
       <?php } ?>
 
       <?php if ($data['result'] != 'success') { ?>
